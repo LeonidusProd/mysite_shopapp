@@ -1,0 +1,16 @@
+{% extends 'shopapp/base.html' %}
+{% block content %}
+<h1>Товары</h1>
+{% for prod in products %}
+<h3>Название: {{ prod.name }}</h3>
+<p>Состав: {{ prod.composition }}</p>
+<p>Цена: {{ prod.price }}</p>
+<p>Доступное количество: {{ prod.available }}</p>
+<p>Дата последней поставки: {{ prod.last_delivery }}</p>
+{% if prod.age_restricted %}
+<p>Товар 18+</p>
+{% else %}
+<p>Без возрастного ограничения</p>
+{% endif %}
+{% endfor %}
+{% endblock %}

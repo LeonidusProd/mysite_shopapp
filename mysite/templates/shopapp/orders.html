@@ -1,0 +1,14 @@
+{% extends 'shopapp/base.html' %}
+{% block content %}
+    <h1>Заказы</h1>
+    {% for ord in orders %}
+        <h3>Заказ номер {{ ord.orderid }}:</h3>
+        <p>Заказчик: {{ ord.customer }}</p>
+        <p>Комментарий: {{ ord.comment }}</p>
+        <p>Дата создания заказа: {{ ord.date }}</p>
+        <p>Состав заказа:</p>
+        {% for prod in ord.products %}
+            <p><li>{{ prod.name }} - {{ prod.count }}</li>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
